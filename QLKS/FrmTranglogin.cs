@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -27,7 +28,7 @@ namespace QLKS
             try
             {
                 string username = txtTaiKhoan.Text;
-                string password = txtMatKhau.Text;
+                string password = encryption(txtMatKhau.Text);
 
                 if (string.IsNullOrEmpty(username) || string.IsNullOrEmpty(password))
                 {
@@ -71,7 +72,19 @@ namespace QLKS
                 MessageBox.Show("Đã xảy ra lỗi trong quá trình đăng nhập. Vui lòng thử lại sau.", "Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
+        public string encryption(string password)
+        {
+            MD5CryptoServiceProvider md5 = new MD5CryptoServiceProvider();
+            byte[] encrypt;
+            UTF8Encoding encode = new UTF8Encoding();
+            encrypt = md5.ComputeHash(encode.GetBytes(password));
+            StringBuilder encryptdata = new StringBuilder();
+            for (int i = 0; i < encrypt.Length; i++)
+            {
+                encryptdata.Append(encrypt[i].ToString());
+            }
+            return encryptdata.ToString();
+        }
         private void lklDoiMatKhau_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             DoiMatKhau dmk = new DoiMatKhau();
