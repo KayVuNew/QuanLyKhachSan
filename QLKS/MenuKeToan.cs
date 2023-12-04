@@ -49,5 +49,18 @@ namespace QLKS
             login.Show();
             this.Hide();
         }
+
+        private void MenuKeToan_Load(object sender, EventArgs e)
+        {
+            FromDoanhThu form2 = new FromDoanhThu();
+
+            // Thêm Winform vào container control của Winform chính
+            form2.TopLevel = false;
+            panel1.Controls.Clear();
+            panel1.Controls.Add(form2);
+            form2.Show();
+            btnDoanhThu.FillColor2 = Color.SlateGray;
+            btnHoadon.FillColor2 = Color.FromArgb(40, 42, 52);
+        }
     }
 }

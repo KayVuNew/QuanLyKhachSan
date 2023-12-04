@@ -157,6 +157,7 @@ namespace QLKS
             this.Name = "MenuKeToan";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "MenuKeToan";
+            this.Load += new System.EventHandler(this.MenuKeToan_Load);
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).EndInit();
             this.guna2Panel1.ResumeLayout(false);
             this.ResumeLayout(false);
