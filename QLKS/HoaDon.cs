@@ -14,10 +14,10 @@ namespace QLKS
     
     public partial class HoaDon
     {
-        public string MaHoaDon { get; set; }
-        public Nullable<double> TienPhong { get; set; }
-        public Nullable<double> TienDV { get; set; }
-        public Nullable<double> TongTien { get; set; }
+        public int MaHoaDon { get; set; }
+        public double TienPhong { get; set; }
+        public double TienDV { get; set; }
+        public double TongTien { get; set; }
         public string HinhThucThanhToan { get; set; }
         public System.DateTime NgayThanhToan { get; set; }
         public string GhiChu { get; set; }

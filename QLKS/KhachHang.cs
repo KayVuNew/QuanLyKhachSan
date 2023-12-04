@@ -17,16 +17,16 @@ namespace QLKS
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public KhachHang()
         {
-            this.Phieuthuephongs = new HashSet<Phieuthuephong>();
+            this.Phieuthuephong = new HashSet<Phieuthuephong>();
         }
     
-        public string MaKH { get; set; }
+        public int MaKH { get; set; }
         public string TenKH { get; set; }
         public int SoCCCD { get; set; }
         public string DiaChi { get; set; }
         public string SDT { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Phieuthuephong> Phieuthuephongs { get; set; }
+        public virtual ICollection<Phieuthuephong> Phieuthuephong { get; set; }
     }
 }

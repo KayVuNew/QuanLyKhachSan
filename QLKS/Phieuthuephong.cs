@@ -17,19 +17,19 @@ namespace QLKS
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Phieuthuephong()
         {
-            this.ChiTietPhieuThues = new HashSet<ChiTietPhieuThue>();
-            this.HoaDons = new HashSet<HoaDon>();
+            this.ChiTietPhieuThue = new HashSet<ChiTietPhieuThue>();
+            this.HoaDon = new HashSet<HoaDon>();
         }
     
         public int MaPhieuThuePhong { get; set; }
         public string GhiChu { get; set; }
-        public string MaNV { get; set; }
-        public string MaKH { get; set; }
+        public int MaNV { get; set; }
+        public int MaKH { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<ChiTietPhieuThue> ChiTietPhieuThues { get; set; }
+        public virtual ICollection<ChiTietPhieuThue> ChiTietPhieuThue { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<HoaDon> HoaDons { get; set; }
+        public virtual ICollection<HoaDon> HoaDon { get; set; }
         public virtual KhachHang KhachHang { get; set; }
         public virtual NhanVien NhanVien { get; set; }
     }

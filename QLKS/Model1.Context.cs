@@ -13,10 +13,10 @@ namespace QLKS
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class Nhom3_Duan1_QuanLiKhachSanEntities : DbContext
+    public partial class QLKSEntities : DbContext
     {
-        public Nhom3_Duan1_QuanLiKhachSanEntities()
-            : base("name=Nhom3_Duan1_QuanLiKhachSanEntities")
+        public QLKSEntities()
+            : base("name=QLKSEntities")
         {
         }
     
@@ -25,16 +25,16 @@ namespace QLKS
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<ChiTietPhieuThue> ChiTietPhieuThues { get; set; }
-        public virtual DbSet<DichVu> DichVus { get; set; }
-        public virtual DbSet<HoaDon> HoaDons { get; set; }
-        public virtual DbSet<KhachHang> KhachHangs { get; set; }
-        public virtual DbSet<LoaiDichVu> LoaiDichVus { get; set; }
-        public virtual DbSet<LoaiPhong> LoaiPhongs { get; set; }
-        public virtual DbSet<NhanVien> NhanViens { get; set; }
-        public virtual DbSet<Phieuthuephong> Phieuthuephongs { get; set; }
-        public virtual DbSet<Phong> Phongs { get; set; }
-        public virtual DbSet<SuDungDichVu> SuDungDichVus { get; set; }
-        public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
+        public virtual DbSet<ChiTietPhieuThue> ChiTietPhieuThue { get; set; }
+        public virtual DbSet<DichVu> DichVu { get; set; }
+        public virtual DbSet<HoaDon> HoaDon { get; set; }
+        public virtual DbSet<KhachHang> KhachHang { get; set; }
+        public virtual DbSet<LoaiDichVu> LoaiDichVu { get; set; }
+        public virtual DbSet<LoaiPhong> LoaiPhong { get; set; }
+        public virtual DbSet<NhanVien> NhanVien { get; set; }
+        public virtual DbSet<Phieuthuephong> Phieuthuephong { get; set; }
+        public virtual DbSet<Phong> Phong { get; set; }
+        public virtual DbSet<SuDungDichVu> SuDungDichVu { get; set; }
+        public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
     }
 }
