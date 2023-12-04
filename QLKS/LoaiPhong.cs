@@ -17,7 +17,7 @@ namespace QLKS
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public LoaiPhong()
         {
-            this.Phongs = new HashSet<Phong>();
+            this.Phong = new HashSet<Phong>();
         }
     
         public int MaLoai { get; set; }
@@ -26,6 +26,6 @@ namespace QLKS
         public string GhiChu { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Phong> Phongs { get; set; }
+        public virtual ICollection<Phong> Phong { get; set; }
     }
 }

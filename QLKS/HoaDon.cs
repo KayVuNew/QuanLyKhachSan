@@ -14,7 +14,7 @@ namespace QLKS
     
     public partial class HoaDon
     {
-        public string MaHoaDon { get; set; }
+        public int MaHoaDon { get; set; }
         public Nullable<double> TienPhong { get; set; }
         public Nullable<double> TienDV { get; set; }
         public Nullable<double> TongTien { get; set; }

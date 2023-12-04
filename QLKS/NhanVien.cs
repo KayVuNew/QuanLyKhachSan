@@ -17,10 +17,10 @@ namespace QLKS
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public NhanVien()
         {
-            this.Phieuthuephongs = new HashSet<Phieuthuephong>();
+            this.Phieuthuephong = new HashSet<Phieuthuephong>();
         }
     
-        public string MaNV { get; set; }
+        public int MaNV { get; set; }
         public string TenTK { get; set; }
         public string Matkhau { get; set; }
         public string Quyen { get; set; }
@@ -28,6 +28,6 @@ namespace QLKS
         public System.DateTime Ngaysinh { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Phieuthuephong> Phieuthuephongs { get; set; }
+        public virtual ICollection<Phieuthuephong> Phieuthuephong { get; set; }
     }
 }

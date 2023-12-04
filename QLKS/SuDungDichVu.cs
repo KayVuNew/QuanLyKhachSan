@@ -14,7 +14,7 @@ namespace QLKS
     
     public partial class SuDungDichVu
     {
-        public string MaSuDung { get; set; }
+        public int MaSuDung { get; set; }
         public System.DateTime NgaySuDung { get; set; }
         public Nullable<int> SoLuong { get; set; }
         public Nullable<double> GiaTien { get; set; }
