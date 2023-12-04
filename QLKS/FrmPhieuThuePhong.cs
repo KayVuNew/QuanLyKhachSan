@@ -77,6 +77,7 @@ namespace QLKS
             txtSL.Text = "";
             dtpNgayRa.Text = "";
             dtpNgayVao.Text = "";
+            rtbGhiChu.Text = "";
             cboPhong.Enabled = true;
             cboNhanVien.Enabled = true;
             txtSL.Enabled = true;
@@ -85,6 +86,7 @@ namespace QLKS
             dtpNgayVao.Enabled = true;
             btnDatPhong.Enabled = true;
             btnTraPhong.Enabled = true;
+            rtbGhiChu.Enabled = true;
         }
 
         private void btnLamMoi_Click_1(object sender, EventArgs e)
@@ -128,9 +130,14 @@ namespace QLKS
                 var mapg = QLKS.Phongs.FirstOrDefault(p => p.TenPhong == pg);
                 var chiTietPhieuThue = QLKS.ChiTietPhieuThues.FirstOrDefault(ctpt => ctpt.MaPhong == mapg.MaPhong);
                 var ptp = QLKS.Phieuthuephongs.FirstOrDefault(pt => pt.MaPhieuThuePhong == chiTietPhieuThue.Maphieuthuephong);
+                var sddv = QLKS.SuDungDichVus.FirstOrDefault(pt => pt.MaChiTietPhieuThue == chiTietPhieuThue.MaChiTietPhieuThue);
                 string HP = "Còn phòng";
                 int phieuthue = ptp.MaPhieuThuePhong;
-                
+                if (sddv != null)
+                {
+                    QLKS.SuDungDichVus.Remove(sddv);
+                    QLKS.SaveChanges(); // Lưu thay đổi vào cơ sở dữ liệu
+                }
                 if (mapg != null)
                 {
                     mapg.TinhTrang = HP; // Cập nhật trạng thái của phòng
@@ -251,7 +258,6 @@ namespace QLKS
             {
                 radTrucTiep.Checked = true;
             }
-            txtSL.Text = dvNhanVien.Rows[list].Cells[6].Value.ToString();
             cboPhong.Enabled = false;
             cboKhachHang.Enabled = false;
             cboNhanVien.Enabled = false;
@@ -265,6 +271,13 @@ namespace QLKS
         private void dtpNgayVao_ValueChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void cboPhong_TextChanged(object sender, EventArgs e)
+        {
+            var tenPG = QLKS.Phongs.FirstOrDefault(nv => nv.TenPhong == cboPhong.Text);
+            var LoaiPg = QLKS.LoaiPhongs.FirstOrDefault(nv => nv.MaLoai == tenPG.MaLoai);
+            txtSL.Text = LoaiPg.SoNguoi.ToString();
         }
     }
 }
