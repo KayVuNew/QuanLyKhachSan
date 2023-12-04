@@ -50,6 +50,10 @@ namespace QLKS
             this.label1 = new System.Windows.Forms.Label();
             this.guna2Elipse3 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
             this.panel1 = new System.Windows.Forms.Panel();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -70,7 +74,7 @@ namespace QLKS
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label5.Location = new System.Drawing.Point(67, 196);
+            this.label5.Location = new System.Drawing.Point(66, 195);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(107, 15);
             this.label5.TabIndex = 10;
@@ -81,8 +85,10 @@ namespace QLKS
             this.txtMatKhauMoi2.Location = new System.Drawing.Point(69, 212);
             this.txtMatKhauMoi2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtMatKhauMoi2.Name = "txtMatKhauMoi2";
+            this.txtMatKhauMoi2.PasswordChar = '*';
             this.txtMatKhauMoi2.Size = new System.Drawing.Size(253, 22);
             this.txtMatKhauMoi2.TabIndex = 9;
+            this.txtMatKhauMoi2.UseSystemPasswordChar = true;
             // 
             // label6
             // 
@@ -100,8 +106,10 @@ namespace QLKS
             this.txtMatKhauMoi1.Location = new System.Drawing.Point(69, 162);
             this.txtMatKhauMoi1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtMatKhauMoi1.Name = "txtMatKhauMoi1";
+            this.txtMatKhauMoi1.PasswordChar = '*';
             this.txtMatKhauMoi1.Size = new System.Drawing.Size(253, 22);
             this.txtMatKhauMoi1.TabIndex = 7;
+            this.txtMatKhauMoi1.UseSystemPasswordChar = true;
             // 
             // btnTroVe
             // 
@@ -168,8 +176,10 @@ namespace QLKS
             this.txtMatKhauCu.Location = new System.Drawing.Point(69, 114);
             this.txtMatKhauCu.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtMatKhauCu.Name = "txtMatKhauCu";
+            this.txtMatKhauCu.PasswordChar = '*';
             this.txtMatKhauCu.Size = new System.Drawing.Size(253, 22);
             this.txtMatKhauCu.TabIndex = 3;
+            this.txtMatKhauCu.UseSystemPasswordChar = true;
             // 
             // label3
             // 
@@ -223,6 +233,10 @@ namespace QLKS
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(49)))), ((int)(((byte)(102)))));
+            this.panel1.Controls.Add(this.label10);
+            this.panel1.Controls.Add(this.label9);
+            this.panel1.Controls.Add(this.label8);
+            this.panel1.Controls.Add(this.label7);
             this.panel1.Controls.Add(this.label5);
             this.panel1.Controls.Add(this.txtMatKhauMoi2);
             this.panel1.Controls.Add(this.label6);
@@ -241,6 +255,50 @@ namespace QLKS
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(380, 296);
             this.panel1.TabIndex = 15;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.ForeColor = System.Drawing.Color.Red;
+            this.label7.Location = new System.Drawing.Point(129, 47);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(12, 15);
+            this.label7.TabIndex = 11;
+            this.label7.Text = "*";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.ForeColor = System.Drawing.Color.Red;
+            this.label8.Location = new System.Drawing.Point(147, 98);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(12, 15);
+            this.label8.TabIndex = 12;
+            this.label8.Text = "*";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.ForeColor = System.Drawing.Color.Red;
+            this.label9.Location = new System.Drawing.Point(155, 146);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(12, 15);
+            this.label9.TabIndex = 13;
+            this.label9.Text = "*";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.ForeColor = System.Drawing.Color.Red;
+            this.label10.Location = new System.Drawing.Point(186, 195);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(12, 15);
+            this.label10.TabIndex = 14;
+            this.label10.Text = "*";
             // 
             // DoiMatKhau
             // 
@@ -281,5 +339,9 @@ namespace QLKS
         private System.Windows.Forms.Label label1;
         private Guna.UI2.WinForms.Guna2Elipse guna2Elipse3;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label7;
     }
 }
