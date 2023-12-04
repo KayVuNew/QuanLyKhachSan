@@ -5,9 +5,12 @@ using System.Data;
 using System.Drawing;
 using System.Globalization;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+
+
 
 namespace QLKS
 {
@@ -54,7 +57,7 @@ namespace QLKS
                 NhanVien st = new NhanVien();
                 st.MaNV = MaNV;
                 st.TenTK = txtTaiKhoan.Text;
-                st.Matkhau = txtMatKhau.Text;
+                st.Matkhau = encryption(txtMatKhau.Text);
                 st.Quyen = cboQuyen.Text;
                 st.Ngaysinh = DateTime.ParseExact(dtpNgSinh.Text, "dd/MM/yyyy", CultureInfo.CurrentCulture);
                 st.HoTen = txtHoTen.Text;
@@ -91,7 +94,19 @@ namespace QLKS
         {
             LoadNV();
         }
-
+        public string encryption(string password)
+        {
+            MD5CryptoServiceProvider md5 = new MD5CryptoServiceProvider();
+            byte[] encrypt;
+            UTF8Encoding encode = new UTF8Encoding();
+            encrypt = md5.ComputeHash(encode.GetBytes(password));
+            StringBuilder encryptdata = new StringBuilder();
+            for (int i = 0; i < encrypt.Length; i++)
+            {
+                encryptdata.Append(encrypt[i].ToString());
+            }
+            return encryptdata.ToString();
+        }
         private void btsua_Click(object sender, EventArgs e)
         {
             if (ValidateForm())
@@ -105,7 +120,7 @@ namespace QLKS
                     DateTime NgSinh = DateTime.ParseExact(dtpNgSinh.Text, "dd/MM/yyyy", CultureInfo.CurrentCulture);
                     string HoTen = txtHoTen.Text;
                     st.TenTK = tenTK;
-                    string matKhau = txtMatKhau.Text;
+                    string matKhau = encryption(txtMatKhau.Text);
                     if (matKhau != "*******")
                     {
                         st.Matkhau = matKhau;
@@ -191,6 +206,30 @@ namespace QLKS
             dtpNgSinh.Text = dvNhanVien.Rows[list].Cells[4].Value.ToString();
             txtMatKhau.Text = dvNhanVien.Rows[list].Cells[5].Value.ToString();
             cboQuyen.Text = dvNhanVien.Rows[list].Cells[3].Value.ToString();
+        }
+
+        private void bttim_Click(object sender, EventArgs e)
+        {
+            string searchText = txttim.Text;
+
+            var query = from nv in QLKS.NhanViens
+                        where nv.HoTen.Contains(searchText)
+                        select new
+                        {
+                            MaNV = nv.MaNV,
+                            Hoten = nv.HoTen,
+                            TaiKhoan = nv.TenTK,
+                            Quyen = nv.Quyen,
+                            NgSinh = nv.Ngaysinh,
+                            MatKhau = "*******",
+                        };
+            dvNhanVien.DataSource = query.ToList();
+            dvNhanVien.Columns["MaNV"].HeaderText = "Mã nhân viên";
+            dvNhanVien.Columns["TaiKhoan"].HeaderText = "Tài khoản";
+            dvNhanVien.Columns["Hoten"].HeaderText = "Họ tên";
+            dvNhanVien.Columns["Quyen"].HeaderText = "Quyền";
+            dvNhanVien.Columns["NgSinh"].HeaderText = "Ngày sinh";
+            dvNhanVien.Columns["MatKhau"].HeaderText = "Mật khẩu";
         }
     }
 }
