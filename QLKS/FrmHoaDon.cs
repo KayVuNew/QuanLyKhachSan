@@ -42,6 +42,16 @@ namespace QLKS
                              Phong = ctp.Phong.TenPhong  // Room name from ChiTietPhieuThue
                          };
             dvThongTin.DataSource = result.ToList();
+            dvThongTin.Columns["MaHoaDon"].HeaderText = "Mã hóa đơn";
+            dvThongTin.Columns["TienPhong"].HeaderText = "Tiền phòng";
+            dvThongTin.Columns["tienDV"].HeaderText = "Tiền dịch vụ";
+            dvThongTin.Columns["TongTien"].HeaderText = "Tổng tiền";
+            dvThongTin.Columns["HinhThucThanhToan"].HeaderText = "Hình thức thanh toán";
+            dvThongTin.Columns["NgayThanhToan"].HeaderText = "Ngày thanh toán";
+            dvThongTin.Columns["GhiChu"].HeaderText = "Ghi chú";
+            dvThongTin.Columns["KhachHang"].HeaderText = "Khách hàng";
+            dvThongTin.Columns["NhanVien"].HeaderText = "Nhân Viên";
+            dvThongTin.Columns["Phong"].HeaderText = "Phòng";
             // Set the column headers as needed
         }
             private void btnThem_Click(object sender, EventArgs e)
