@@ -6,7 +6,7 @@ using System.Windows.Forms;
 
 namespace QLKS
 {
-    static class Program
+    internal static class Program
     {
         /// <summary>
         /// The main entry point for the application.
@@ -16,7 +16,7 @@ namespace QLKS
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FrmTranglogin());
+            Application.Run(new Form1());
         }
     }
 }
