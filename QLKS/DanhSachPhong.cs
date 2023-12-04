@@ -44,5 +44,15 @@ namespace QLKS
             dvThongTin.Columns["GiaThue"].HeaderText = "Giá thuê";
             dvThongTin.Columns["TenLoai"].HeaderText = "Tên loại";
         }
+
+        private void dvThongTin_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void btnTim_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
