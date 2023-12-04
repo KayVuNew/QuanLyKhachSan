@@ -151,7 +151,7 @@ namespace QLKS
                 LoadData();
                 ClearFields();
 
-                MessageBox.Show("Thêm thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Gọi dịch vụ thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             
         }
