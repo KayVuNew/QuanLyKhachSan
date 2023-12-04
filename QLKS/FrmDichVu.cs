@@ -44,7 +44,7 @@ namespace QLKS
                 MessageBox.Show("Tên dịch vụ không hợp lệ vui lòng kiểm tra lại", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
             }
-            else if (double.Parse(txtdongia.Text) <= 0)
+            else if (int.Parse(txtdongia.Text) <= 0)
             {
                 MessageBox.Show("Đơn giá phải lớn hơn 0", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
@@ -87,24 +87,43 @@ namespace QLKS
         {
             using (Nhom3_Duan1_QuanLiKhachSanEntities csharpDB = new Nhom3_Duan1_QuanLiKhachSanEntities())
             {
-                DichVu found = csharpDB.DichVus
-                      .FirstOrDefault(sp => sp.MaDV == makhoachinh);
-                found.TenDV = txttdv.Text;
-                found.DonGia = double.Parse(txtdongia.Text);
-                found.MaLoaiDV = int.Parse(cmxloaidv.Text);
 
-                csharpDB.SaveChanges();
+                LoaiDichVu LDV = csharpDB.LoaiDichVus
+            .FirstOrDefault(sp => sp.TenLoaiDV == txttdv.Text);
+
+                if (LDV != null)
+                {
+                    DichVu found = csharpDB.DichVus
+                        .FirstOrDefault(sp => sp.MaLoaiDV == LDV.MaLoaiDV);
+
+                    if (found != null)
+                    {
+                        found.TenDV = txttdv.Text;
+                        found.DonGia = double.Parse(txtdongia.Text);
+                        found.MaLoaiDV = LDV.MaLoaiDV;
+
+                        csharpDB.SaveChanges();
+                        this.updateDataGridView();
+                    }
+                    else
+                    {
+                        // Handle the case where `found` is null
+                    }
+                }
             }
-            this.updateDataGridView();
         }
         private void btxoa_Click(object sender, EventArgs e)
         {
             using (Nhom3_Duan1_QuanLiKhachSanEntities csharpDB = new Nhom3_Duan1_QuanLiKhachSanEntities())
             {
-                DichVu found = csharpDB.DichVus
-                      .FirstOrDefault(sp => sp.MaDV == makhoachinh);
-                csharpDB.DichVus.Remove(found);
-                csharpDB.SaveChanges();
+                if(MessageBox.Show("Bạn có muốn xóa không?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    DichVu found = csharpDB.DichVus
+                      .FirstOrDefault(sp => sp.TenDV == txttdv.Text);
+                    MessageBox.Show("Xóa thành công", "OK", MessageBoxButtons.OK);
+                    csharpDB.DichVus.Remove(found);
+                    csharpDB.SaveChanges();
+                }
             }
             this.updateDataGridView();
         }
