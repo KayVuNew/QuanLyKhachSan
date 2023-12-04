@@ -160,5 +160,28 @@ namespace QLKS
             txtCMND.Text = dvKhachHang.Rows[list].Cells[4].Value.ToString();
             txtDiaChi.Text = dvKhachHang.Rows[list].Cells[3].Value.ToString();
         }
+
+        private void bttim_Click(object sender, EventArgs e)
+        {
+            string sdtCanTim = txttim.Text;
+
+            var result = from kh in QLKS.KhachHangs
+                         where kh.TenKH == txttim.Text
+                         select new
+                         {
+                             MaKH = kh.MaKH,
+                             TenKH = kh.TenKH,
+                             SDT = kh.SDT,
+                             DiaChi = kh.DiaChi,
+                             CCCD = kh.SoCCCD
+                         };
+
+            dvKhachHang.DataSource = result.ToList();
+
+            dvKhachHang.Columns["MaKH"].HeaderText = "Mã khách hàng";
+            dvKhachHang.Columns["TenKH"].HeaderText = "Tên khách hàng";
+            dvKhachHang.Columns["SDT"].HeaderText = "SĐT";
+            dvKhachHang.Columns["DiaChi"].HeaderText = "Địa chỉ";
+        }
     }
 }
